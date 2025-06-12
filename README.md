@@ -23,3 +23,7 @@ We need a way to create a window, and update the screen and allow for movement. 
 
 - In the beginning, you always start with a root node in edit mode.
 - You can then add a new node. Give it a name and so on.
+# Features
+## Zoom
+- In order to zoom, if we scroll up it should zoom in. if we scroll down it should zoom out. There should be a zoom factor that is constant.
+- When we zoom how does that affect the size of everything? Everything is bigger. However

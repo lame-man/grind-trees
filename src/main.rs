@@ -1,40 +1,48 @@
-/*
-- Task:
-    - content:string
-    - checked:bool
-- Gnod: (on hover show title. on click show box with tasks and goals.)
-    - tasks: list[Task]
-    - goals: list[string]
-    - title: string
-- GTree:
-    - title: string
-    - nodes: list[Gnod]
-    - adjacency matrix: list[list[bool]]
-    - progress: float (value between 0 and 1)
-    - mode: int (value between 0 and 2)
-- Modes:
-    - edit mode: allows to create new nodes, connection, and changing the attributes of a node.
-    - grind mode: locks editing. shows status bar of how far towards your goal you are(completing all nodes), which can be further split into subgoals(completing a specific branch of the tree).
-    - save mode: saves the current state of the tree locally to load it later. state can be encoded as the GTree object. Current progress should be dynamically computed. and so on.
-*/
+mod transform;
+use transform::{Camera, GNode, Task, draw_node};
 use macroquad::prelude::*;
 
-struct Task{
-    content: String,
-    checked: bool
-}
-struct GNode{
-    title: String,
-    tasks: Vec<Task>,
-    goals: Vec<String>
-}
-struct GTree{
-    title: String,
-    nodes: Vec<GNode>,
-    adjacency: Vec<Vec<bool>>,
-    progress: f32
-}
-
-fn main(){
-    println!("Hello World!")
+#[macroquad::main("Grind Trees")]
+async fn main() {
+    let mut cam: Camera = Camera::new();
+    let mut tasks: Vec<Task> = Vec::new();
+    let mut goals: Vec<String> = Vec::new();
+    let task1: Task = Task{
+        content: String::from("Type at 35 wpm"),
+        checked: false
+    };
+    let task2: Task = Task{
+        content: String::from("Solve a leetcode easy"),
+        checked: false
+    };
+    tasks.push(task1);
+    tasks.push(task2);
+    goals.push(String::from("Typing Faster"));
+    goals.push(String::from("Improving problem solving skills"));
+    let root: GNode = GNode{
+        title: String::from("Programming Novice"),
+        tasks: tasks,
+        goals: goals,
+        x: 150.0,
+        y: 150.0,
+        r: 50.0,
+    };
+    let mut nodes: Vec<GNode> = vec![root.clone()];
+    loop {
+        clear_background(BLACK);
+        draw_text("Grind Trees", 20.0, 40.0, 30.0, DARKGRAY);
+        cam.update();
+        if is_key_pressed(KeyCode::Space){
+            let mouse: Vec2 = mouse_position().into();
+            let mut new_node = root.clone();
+            let new_pos:Vec2 = (mouse - cam.offset) / cam.zoom;
+            new_node.x = new_pos.x;
+            new_node.y = new_pos.y;
+            nodes.push(new_node);
+        }
+        for node in &nodes{
+            draw_node(&cam, node).await;
+        }
+        next_frame().await
+    }
 }
