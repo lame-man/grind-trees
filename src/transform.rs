@@ -1,23 +1,34 @@
 use macroquad::prelude::*;
-#[derive(Clone)]
-pub struct Task{
-    pub content: String,
-    pub checked: bool
+use serde::{Serialize, Deserialize};
+use std::fs;
+
+pub fn load_gtree_from_file(path: &str) -> GTree {
+    let data = fs::read_to_string(path).expect("Failed to read JSON file");
+    serde_json::from_str::<GTree>(&data).expect("Failed to parse JSON into GTree")
 }
-#[derive(Clone)]
-pub struct GNode{
+
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct Task {
+    pub content: String,
+    pub checked: bool,
+}
+
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct GNode {
     pub title: String,
     pub tasks: Vec<Task>,
     pub goals: Vec<String>,
     pub x: f32,
     pub y: f32,
     pub r: f32,
+    pub parent: Option<usize>
 }
-pub struct GTree{
-    title: String,
-    nodes: Vec<GNode>,
-    adjacency: Vec<Vec<bool>>,
-    progress: f32
+
+#[derive(Clone, Serialize, Deserialize, Debug)]
+pub struct GTree {
+    pub title: String,
+    pub nodes: Vec<GNode>,
+    pub progress: f32,
 }
 
 pub struct Camera{
@@ -77,26 +88,18 @@ pub fn calc_pos(original:Vec2, zoom:f32, camera_offset:Vec2)->Vec2{
     (original * zoom) + camera_offset
 }
 
-pub fn draw_tree(cam: &Camera){
-    let origin = vec2(100.0, 100.0);
-    let time = get_time() as f32;
-    let ball_pos = calc_pos(Vec2{x:origin.x + time.sin() * 100.0 + time*10.0,
-                                                    y:origin.y + time.cos() * 100.0}, cam.zoom, cam.offset);
-    let center = calc_pos(Vec2{x:origin.x + time*10.0, y:origin.y}, cam.zoom, cam.offset);
-    draw_circle(ball_pos.x, ball_pos.y, 20.0 * cam.zoom, SKYBLUE);
-    draw_circle(center.x, center.y, 4.0*cam.zoom, SKYBLUE);
-}
-
 pub async fn draw_node(cam: &Camera, node: &GNode){  
     let circle_texture = load_texture("assets/circle.png").await.unwrap();
     let new_pos: Vec2 = calc_pos(vec2(node.x, node.y), cam.zoom, cam.offset);
+    let size = node.r * cam.zoom;
+    // Offset x and y so that the texture is centered at new_pos
     draw_texture_ex(
         &circle_texture,
-        new_pos.x,
-        new_pos.y,
+        new_pos.x - size / 2.0,
+        new_pos.y - size / 2.0,
         WHITE,
         DrawTextureParams {
-            dest_size: Some(vec2(node.r*cam.zoom, node.r*cam.zoom)),
+            dest_size: Some(vec2(size, size)),
             ..Default::default()
         },
     );
