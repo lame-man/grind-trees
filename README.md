@@ -27,3 +27,5 @@ We need a way to create a window, and update the screen and allow for movement. 
 ## Zoom
 - In order to zoom, if we scroll up it should zoom in. if we scroll down it should zoom out. There should be a zoom factor that is constant.
 - When we zoom how does that affect the size of everything? Everything is bigger. However
+# TODO
+- 

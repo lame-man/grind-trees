@@ -1,8 +1,11 @@
 {
   "title": "Programming Growth Map",
+  "progress": 0.0,
   "nodes": [
     {
       "title": "Programming Novice",
+      "description": "Begin programming journey",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Set up development environment",
@@ -13,113 +16,112 @@
           "checked": false
         }
       ],
-      "goals": [
-        "Begin programming journey"
-      ],
-      "x": 500.0,
-      "y": 300.0,
-      "r": 60.0,
+      "is_lit": true,
+      "x": 800.0,
+      "y": 600.0,
+      "r": 40.0,
       "parent": null
     },
     {
       "title": "Type Faster",
+      "description": "Double typing speed and Increase productivity",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice touch typing daily",
           "checked": false
         }
       ],
-      "goals": [
-        "Double typing speed",
-        "Increase productivity"
-      ],
-      "x": 300.0,
-      "y": 150.0,
-      "r": 50.0,
+      "is_lit": false,
+      "x": 500.0,
+      "y": 300.0,
+      "r": 32.0,
       "parent": 0
     },
     {
       "title": "Reach 35 WPM",
+      "description": "Reach 35 WPM",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice until you reach 35 WPM",
           "checked": true
         }
       ],
-      "goals": [
-        "Reach 35 WPM"
-      ],
-      "x": 180.0,
-      "y": 80.0,
-      "r": 40.0,
+      "is_lit": false,
+      "x": 300.0,
+      "y": 120.0,
+      "r": 24.0,
       "parent": 1
     },
     {
       "title": "Reach 45 WPM",
+      "description": "Reach 45 WPM",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice until you reach 45 WPM",
           "checked": true
         }
       ],
-      "goals": [
-        "Reach 45 WPM"
-      ],
-      "x": 250.0,
-      "y": 60.0,
-      "r": 40.0,
+      "is_lit": false,
+      "x": 400.0,
+      "y": 80.0,
+      "r": 24.0,
       "parent": 1
     },
     {
       "title": "Reach 60 WPM",
+      "description": "Reach 60 WPM",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice until you reach 60 WPM",
           "checked": true
         }
       ],
-      "goals": [
-        "Reach 60 WPM"
-      ],
-      "x": 320.0,
+      "is_lit": false,
+      "x": 500.0,
       "y": 60.0,
-      "r": 40.0,
+      "r": 24.0,
       "parent": 1
     },
     {
       "title": "Reach 75 WPM",
+      "description": "Reach 75 WPM",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice until you reach 75 WPM",
           "checked": true
         }
       ],
-      "goals": [
-        "Reach 75 WPM"
-      ],
-      "x": 390.0,
+      "is_lit": false,
+      "x": 600.0,
       "y": 80.0,
-      "r": 40.0,
+      "r": 24.0,
       "parent": 1
     },
     {
       "title": "Reach 80 WPM",
+      "description": "Reach 80 WPM",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Practice until you reach 80 WPM",
           "checked": true
         }
       ],
-      "goals": [
-        "Reach 80 WPM"
-      ],
-      "x": 460.0,
+      "is_lit": false,
+      "x": 700.0,
       "y": 120.0,
-      "r": 40.0,
+      "r": 24.0,
       "parent": 1
     },
     {
       "title": "Domain Concepts",
+      "description": "Build web automation projects and Understand domain-specific tools",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Learn web scraping basics",
@@ -130,17 +132,16 @@
           "checked": false
         }
       ],
-      "goals": [
-        "Build web automation projects",
-        "Understand domain-specific tools"
-      ],
-      "x": 700.0,
-      "y": 150.0,
-      "r": 50.0,
+      "is_lit": false,
+      "x": 1200.0,
+      "y": 300.0,
+      "r": 32.0,
       "parent": 0
     },
     {
       "title": "LeetCode Mastery",
+      "description": "Improve problem-solving skills and Learning multiple solution strategies",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Solve 50 easy problems",
@@ -151,17 +152,16 @@
           "checked": false
         }
       ],
-      "goals": [
-        "Improve problem-solving skills",
-        "Learn multiple solution strategies"
-      ],
-      "x": 300.0,
-      "y": 450.0,
-      "r": 50.0,
+      "is_lit": false,
+      "x": 500.0,
+      "y": 1000.0,
+      "r": 32.0,
       "parent": 0
     },
     {
       "title": "Abstract Patterns",
+      "description": "Understand abstract programming concepts and Apply functional programming",
+      "progress": 0.0,
       "tasks": [
         {
           "content": "Study category theory basics",
@@ -172,15 +172,11 @@
           "checked": false
         }
       ],
-      "goals": [
-        "Understand abstract programming concepts",
-        "Apply functional programming"
-      ],
-      "x": 700.0,
-      "y": 450.0,
-      "r": 50.0,
+      "is_lit": false,
+      "x": 1200.0,
+      "y": 1000.0,
+      "r": 32.0,
       "parent": 0
     }
-  ],
-  "progress": 0.1
+  ]
 }
