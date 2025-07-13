@@ -1,0 +1,18 @@
+{
+  "title": "Rust Adventure",
+  "progress": 100.0,
+  "nodes": [
+    {
+      "title": "Rust noob",
+      "description": "Learning rust is good",
+      "progress": 100.0,
+      "tasks": [
+        {
+          "content": "Serialize an object into json format",
+          "checked": true
+        }
+      ],
+      "is_lit": true
+    }
+  ]
+}

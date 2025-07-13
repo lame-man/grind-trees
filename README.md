@@ -28,4 +28,9 @@ We need a way to create a window, and update the screen and allow for movement. 
 - In order to zoom, if we scroll up it should zoom in. if we scroll down it should zoom out. There should be a zoom factor that is constant.
 - When we zoom how does that affect the size of everything? Everything is bigger. However
 # TODO
-- 
+- DRAWING THE SKILL TREE
+    - We can have multiple modes of drawing. Node shaped is set as default.
+    - Nodes should look good.
+    - Each node is either lit up or not depending on progress.
+    - Get inspiration from other skill trees
+    - 
